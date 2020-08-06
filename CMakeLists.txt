@@ -38,6 +38,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/Config.h.in internal/Config.h @ONLY)
 add_compile_options(-Wall -Werror -Wextra -pedantic -pedantic-errors)
+link_libraries(atomic)
 if (COVERAGE)
     add_compile_options(--coverage -O0)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")

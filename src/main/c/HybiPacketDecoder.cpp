@@ -77,7 +77,7 @@ HybiPacketDecoder::MessageState HybiPacketDecoder::decodeNextMessage(
         }
         uint64_t raw_length;
         memcpy(&raw_length, &_buffer[ptr], sizeof(raw_length));
-        payloadLength = __bswap_64(raw_length);
+        payloadLength = bswap_64(raw_length);
         ptr += 8;
     }
     uint32_t mask = 0;

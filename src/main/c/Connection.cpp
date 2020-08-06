@@ -619,7 +619,7 @@ void Connection::sendHybiData(const uint8_t* webSocketResponse, size_t messageLe
         uint8_t nextByte = 127; // No MASK bit set.
         if (!write(&nextByte, 1, false))
             return;
-        uint64_t lengthBytes = __bswap_64(messageLength);
+        uint64_t lengthBytes = bswap_64(messageLength);
         if (!write(&lengthBytes, 8, false))
             return;
     }
